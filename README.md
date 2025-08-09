@@ -1,1 +1,1 @@
-## Etapa 1 - verificar sumário.
+## Etapa 2 - verificar sumário.
