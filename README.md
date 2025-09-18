@@ -12,7 +12,7 @@ Aqui demonstramos o foco em software moderno, concebido com intuito de integraç
 
 ---
 
-## 📂 Estrutura do Projeto - ETAPAD 4 (versão final do projeto testada e aprovada)
+## 📂 Estrutura do Projeto - ETAPA 4 (versão final do projeto testada e aprovada)
 
 O repositório está organizado em três principais pastas:
 
