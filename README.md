@@ -1,6 +1,6 @@
 # 🚀 Projeto Final da Fase 2: Etapa 4 – Entrega Final
 
-## ➰ DataHarbor IoT
+## ➰ DataHarbor-IoT
 
 Este projeto apresenta a espinha dorsal para a construção de uma solução **IoT completa e moderna**, integrando **firmware embarcado, front-end Angular, back-end Spring Boot (Java17) e banco de dados Postgres**, empacotados via **Docker Compose** para execução em ambientes locais ou em nuvem (Cloudflare / AWS).
 
