@@ -21,7 +21,7 @@ O repositório está organizado em três principais pastas:
 Apresentação executiva do projeto, destacando:
 
 - O **problema** que buscamos resolver.
-- A **solução proposta, onde e como podemos atingir** com DataHarbor IoT.
+- A **solução proposta, onde e como podemos atingir** com DataHarbor-IoT.
 - Os **benefícios e diferenciais** frente a soluções tradicionais.
 - Uma visão rápida e clara para professores e parceiros técnicos.
 
