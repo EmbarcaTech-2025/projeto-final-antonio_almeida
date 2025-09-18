@@ -212,13 +212,45 @@ ng version
 ```bash
 sudo apt install -y postgresql-client
 ```
-Alguns comandos de uso geral...
-- mvn clean package (construir app Java Spring)
-- mvn spring-boot:run (roda Java Spring)
-- ng serve (construir app Angular local)
-- docker compose up -d --build (construir Compose) - para ter sucesso /dist (Angular) e /target (Java Spring) já estejam com seus executáveis devidamente construidos!
-  Para que não haja duvidas, é só consultar os respectivos path's relativos a cada serviço do Compose Angular é o /dist e Java Spring é o /back/target.
-- para mais, pesquisar de acordo com as necessidades e o foco a que se aplica...
+## Comandos para Build e Execução
+
+### Java Spring (Backend)
+1. Construir o projeto:
+   ```bash
+   mvn clean package
+   ```
+- Gera o .jar dentro de /back/target.
+   
+2. Executar localmente:
+  ```bash
+  mvn spring-boot:run
+  ```
+3. Angular (Frontend) Executar localmente (ambiente de desenvolvimento):
+  ```bash
+  ng serve
+  ```
+4. Construir para produção:
+  ```bash
+  ng build --configuration production
+  // já está dentro do dockerfile do Angular
+  ng build --configuration development
+  // para teste com variáveis globais e depuração sendo apresentadas no navegador
+  ```
+
+5. Docker e Compose - Subir todo o ambiente com containers:
+  ```bash
+  docker compose up -d --build
+  ```
+⚠️ Importante: Antes de rodar o docker compose, certifique-se de que:
+
+  - O build do Angular (/dist) já foi gerado.
+  - O build do Java Spring (/back/target) já foi gerado.
+Observação
+Angular → executável gerado em /dist.
+Java Spring → .jar gerado em /back/target.
+
+- Em caso de dúvidas ou personalizações, consulte os path relativos definidos no docker-compose.yml.
+- Para mais detalhes ou problemas específicos, pesquisar de acordo com as necessidades e foco no propósito.
 
 ---
 
