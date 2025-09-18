@@ -142,8 +142,6 @@ sudo apt install docker-compose
 
 - **Necessário para compilar e rodar o back-end Spring Boot.**
 
-- **Linux (Ubuntu/Debian):**
-
 ```bash
 sudo apt install -y openjdk-17-jdk
 ```
