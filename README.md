@@ -217,5 +217,5 @@ sudo apt install -y postgresql-client
 
 ### Login + Password de primeiro acesso
 
-    - login: acfa@acfa.br
+    - login: acfa@acfa.com
     - senha: 1234@
