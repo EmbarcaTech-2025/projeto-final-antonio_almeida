@@ -212,6 +212,13 @@ ng version
 ```bash
 sudo apt install -y postgresql-client
 ```
+Alguns comandos de uso geral...
+- mvn clean package (construir app Java Spring)
+- mvn spring-boot:run (roda Java Spring)
+- ng serve (construir app Angular local)
+- docker compose up -d --build (construir Compose) - para ter sucesso /dist (Angular) e /target (Java Spring) já estejam com seus executáveis devidamente construidos!
+  Para que não haja duvidas, é só consultar os respectivos path's relativos a cada serviço do Compose Angular é o /dist e Java Spring é o /back/target.
+- para mais, pesquisar de acordo com as necessidades e o foco a que se aplica...
 
 ---
 
