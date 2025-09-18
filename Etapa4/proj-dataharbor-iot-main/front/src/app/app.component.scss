@@ -1,0 +1,78 @@
+/* ================================
+   Variáveis de cor (paleta café)
+================================= */
+$coffee-light: #f3ebe4; // tom claro para fundo
+$coffee-dark: #3e2723;  // tom escuro para textos
+$coffee-hover: rgba(62, 39, 35, 0.1); // hover translúcido
+
+/* ================================
+   Base
+================================= */
+body {
+  margin: 0;
+}
+
+main {
+  margin: 30px;
+}
+
+/* ================================
+   Botão do menu
+================================= */
+.menu-button {
+  background: rgba(8, 1, 42, 0.9);
+  color: rgb(255, 0, 0);
+  border: 2px solid #000;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+
+  &:hover {
+    background: rgb(220, 247, 255);
+  }
+}
+
+/* ================================
+   Sidenav
+================================= */
+.mat-sidenav-container {
+  z-index: 1;
+  background: transparent;
+}
+
+mat-sidenav {
+  background-color: $coffee-light;
+  color: $coffee-dark;
+  width: 250px;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+
+  a {
+    color: $coffee-dark;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      background-color: $coffee-hover;
+      border-radius: 4px;
+    }
+  }
+}
+
+/* ================================
+   Toolbar
+================================= */
+.mat-toolbar {
+  // Adicione estilos extras se necessário
+}
+
+/* ================================
+   Lista de navegação
+================================= */
+.mat-nav-list {
+  padding: 50px;
+}
+
+.mat-list-item {
+  margin-bottom: 10px;
+}

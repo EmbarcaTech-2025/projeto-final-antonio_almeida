@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        opacity: 0; /* Inicia com opacidade 0 para o efeito de fade-in */
+        transition: opacity 2s; /* Define a transição de opacidade em 2 segundos */
+      }
+
+      .image-loaded {
+        opacity: 1; /* Quando a classe é aplicada, a opacidade é definida como 1 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Pré-carregar a imagem com uma tag de imagem oculta -->
+    <img
+      class="preload-image"
+      src="assets/img/institutional.jpg"
+      alt="Institutional Image"
+      style="display: none"
+    />
+
+    <script>
+      // Pré-carregar a imagem
+      const preloadImage = new Image();
+      preloadImage.src = "assets/img/institutional.jpg";
+
+      // Quando a imagem é carregada, aplicar como plano de fundo do corpo e adicionar a classe para o efeito de fade-in
+      preloadImage.onload = function () {
+        document.body.style.backgroundImage =
+          "url('assets/img/institutional.jpg')";
+        document.body.classList.add("image-loaded");
+        document.body.style.overflow = "auto"; // Ativa o scroll
+      };
+    </script>
+  </body>
+</html>

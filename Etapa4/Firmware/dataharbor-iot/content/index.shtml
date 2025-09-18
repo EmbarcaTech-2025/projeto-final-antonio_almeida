@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>DataHarborIoT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajuste para celular -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;      
+            align-items: center;          
+            height: 100vh;                 
+            margin: 0;                     
+            background-color: #f4f4f4;     
+            font-family: Arial, sans-serif;
+            font-size: 1.5rem; /* Texto maior */
+        }
+        .container {
+            text-align: center;            
+            background: white;
+            padding: 2rem; /* Espaço interno proporcional */
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.15);
+            max-width: 90%; /* Evita estourar largura no celular */
+        }
+        img {
+            max-width: 250px;  /* maior que antes */
+            width: 100%;
+            height: auto;      /* mantém proporção correta */
+            display: block;
+            margin: 0 auto;    /* centraliza */
+        }
+        @media (max-width: 600px) {
+            img {
+                max-width: 350px; /* aumenta em telas pequenas */
+            }
+        }
+        a {
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: #0078d7;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        input[type=submit] {
+            padding: 1rem 2rem; 
+            font-size: 1.5rem; /* Botão grande */
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DataHarbor</h1>
+        <h1>IoT</h1>
+        <p><img src="/img/rpi.png" alt="Logo IoT"></p>
+        <p><!--#welcome--></p>
+        <p>Uptime is <!--#uptime--> seconds</p>
+        <p><a href="/?test">Table of temperature</a></p>
+        <p>
+            <form action="/led0.cgi" method="post">
+                <input type="hidden" name="led_state" value="<!--#ledinv-->">
+                <input type="submit" value="Turn led <!--#ledinv-->">
+            </form>
+        </p>
+        <p>
+            <form action="/led1.cgi" method="post">
+                <input type="hidden" name="led_state" value="<!--#ledinv-->">
+                <input type="submit" value="Turn led <!--#ledinv-->">
+            </form>
+        </p>
+    </div>
+</body>
+</html>

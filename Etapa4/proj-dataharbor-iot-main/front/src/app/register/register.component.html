@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="logo text-center">
+      <img width="300" src="assets/img/add.jpg" alt="" />
+    </div>
+    <div class="registartion-form m-3 p-2">
+      <form [formGroup]="registrationForm">
+        <div class="row">
+          <div class="col-md-6 mt-3 text-md-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Nome</mat-label>
+              <input
+                formControlName="firstName"
+                matInput
+                placeholder="FirstName"
+                autocomplete="given-name"
+              />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <span
+              class="badge bg-danger"
+              *ngIf="registrationForm.get('firstName')?.touched && registrationForm.get('firstName')?.errors?.['required'] "
+              >Nome é necessário!</span
+            >
+          </div>
+          <div class="col-md-6 mt-3 text-md-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Sobrenome</mat-label>
+              <input
+                formControlName="lastName"
+                matInput
+                placeholder="LastName"
+                autocomplete="family-name"
+              />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <span
+              class="badge bg-danger"
+              *ngIf="registrationForm.get('lastName')?.touched && registrationForm.get('lastName')?.errors?.['required'] "
+              >Sobrenome é necessário!</span
+            >
+          </div>
+          <div class="col-md-6 mt-3 text-md-center">
+            <mat-form-field appearance="outline">
+              <mat-label>E-mail</mat-label>
+              <input
+                formControlName="email"
+                matInput
+                placeholder="Email"
+                autocomplete="email"
+              />
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <span
+              class="badge bg-danger"
+              *ngIf="registrationForm.get('email')?.touched && registrationForm.get('email')?.errors?.['required']"
+              >Campo E-mail é obrigatório!</span
+            >
+            <span
+              class="badge bg-danger"
+              *ngIf="registrationForm.get('email')?.touched && registrationForm.get('email')?.errors?.['email']"
+              >E-mail invávlido!</span
+            >
+          </div>
+          <div class="col-md-6 mt-3 text-md-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Tipo de Usuário</mat-label>
+              <mat-select
+                formControlName="role"
+                matInput
+                placeholder="Possíveis escolhas..."
+              >
+                <mat-option *ngFor="let role of roles" [value]="role">
+                  {{ role }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <span
+              class="badge bg-danger"
+              *ngIf="registrationForm.get('role')?.touched && registrationForm.get('role')?.errors?.['required']"
+              >Tipo de Usuário é obrigatório!</span
+            >
+          </div>
+          <div class="col-md-6 mt-3 text-md-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Cel/Mobile</mat-label>
+              <input
+                matInput
+                placeholder="(xx) xxxx-xxxxx"
+                formControlName="mobile"
+                autocomplete="tel"
+              />
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+            <span
+              class="badge bg-danger"
+              *ngIf="registrationForm.get('mobile')?.touched && registrationForm.get('mobile')?.errors?.['required']"
+              >Campo Cel/Mobile é obrigatório!</span
+            >
+            <span
+              class="badge bg-danger"
+              *ngIf="registrationForm.get('mobile')?.hasError('invalidPhone')"
+            >
+              {{ registrationForm.get('mobile')?.errors?.['invalidPhone']?.message }}
+            </span>
+          </div>
+          <div class="col-md-6 mt-3 text-md-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Rua ... , nº ...</mat-label>
+              <input
+                formControlName="street"
+                matInput
+                placeholder="Endereço"
+                autocomplete="street-address"
+              />
+              <mat-icon matSuffix>location_on</mat-icon>
+            </mat-form-field>
+            <span
+              class="badge bg-danger"
+              *ngIf="registrationForm.get('street')?.touched && registrationForm.get('street')?.errors?.['required']"
+              >Campo Rua/número é obrigatório!</span
+            >
+          </div>
+          <div class="col-md-6 mt-3 text-md-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Cidade</mat-label>
+              <input
+                formControlName="city"
+                matInput
+                placeholder="Cidade"
+                autocomplete="address-level2"
+              />
+              <mat-icon matSuffix>location_city</mat-icon>
+            </mat-form-field>
+            <span
+              class="badge bg-danger"
+              *ngIf="registrationForm.get('city')?.touched && registrationForm.get('city')?.errors?.['required']"
+              >Campo Cidade é obrigatório!</span
+            >
+          </div>
+          <div class="col-md-6 mt-3 text-md-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Estado</mat-label>
+              <input
+                formControlName="state"
+                matInput
+                placeholder="Estado"
+                autocomplete="address-level1"
+              />
+              <mat-icon matSuffix>flag</mat-icon>
+            </mat-form-field>
+            <span
+              class="badge bg-danger"
+              *ngIf="registrationForm.get('state')?.touched && registrationForm.get('state')?.errors?.['required']"
+              >Campo Estado é obrigatório!</span
+            >
+          </div>
+          <div class="col-md-6 mt-3 text-md-center">
+            <label id="example-radio-group-label">País de origem?</label>
+            <mat-radio-group
+              formControlName="country"
+              class="example-radio-group"
+            >
+              <mat-radio-button
+                class="example-radio-button"
+                *ngFor="let country of countries"
+                [value]="country"
+              >
+                {{ country }}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="col-md-6 mt-3 text-md-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Senha</mat-label>
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                formControlName="password"
+                placeholder="Password"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="togglePasswordVisibility()"
+              >
+                <mat-icon>{{
+                  hide ? "visibility" : "visibility_off"
+                }}</mat-icon>
+              </button>
+            </mat-form-field>
+            <span
+              class="badge bg-danger"
+              *ngIf="registrationForm.get('password')?.touched && registrationForm.get('password')?.errors?.['required']"
+            >
+              Senha é obrigatória!
+            </span>
+            <span
+              class="badge bg-danger"
+              *ngIf="
+                registrationForm.get('password')?.touched &&
+                registrationForm.get('password')?.hasError('pattern')
+              "
+            >
+              A senha deve conter ao menos: uma letra maiúscula, um número, 6
+              caracteres, sendo 1 especial!
+            </span>
+          </div>
+          <div class="col-md-6 mt-3 text-md-center"></div>
+          <div class="col-md-6 mt-3 text-md-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Confirme a Senha</mat-label>
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                formControlName="confirmPassword"
+                placeholder="Confirme Senha"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="togglePasswordVisibility()"
+              >
+                <mat-icon>{{
+                  hide ? "visibility" : "visibility_off"
+                }}</mat-icon>
+              </button>
+            </mat-form-field>
+            <span
+              class="badge bg-danger"
+              *ngIf="
+                registrationForm.get('passwordMismatch')?.touched &&
+                registrationForm.hasError('passwordMismatch')
+              "
+            >
+              As senhas não coincidem!
+            </span>
+          </div>
+        </div>
+        <button
+          *ngIf="!isUpdateActive"
+          (click)="onSubmit()"
+          [disabled]="!registrationForm.valid"
+          class="mt-4"
+          mat-raised-button
+          color="accent"
+        >
+          Registro
+        </button>
+
+        <button
+          *ngIf="isUpdateActive"
+          (click)="onUpdate()"
+          [disabled]="!registrationForm.valid"
+          class="mt-4"
+          mat-raised-button
+          color="accent"
+        >
+          Altera
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

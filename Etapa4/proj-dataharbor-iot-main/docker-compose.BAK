@@ -1,0 +1,68 @@
+# elimina dependência e custo CloudFlare e usa apenas AWS Free Tier cuidando para n passar dos limites
+# para rodar na AWS(EC2 com API Gateway disparando Lambda)
+# Lambda faz um proxy HTTP para o nginx na EC2 (via private IP na VPC).
+
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: acfa
+      POSTGRES_DB: bookstore_jpa
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  back:
+    image: openjdk:17-jdk
+    container_name: spring-backend
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./back/target:/app
+    command: ["java", "-jar", "bookstore-jpa.jar"]
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/bookstore_jpa
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: acfa
+    depends_on:
+      - postgres
+    networks:
+      - backend
+
+  front:
+    image: node:20
+    container_name: angular-frontend
+    working_dir: /app
+    volumes:
+      - ./front:/app
+    command: ["npm", "run", "build", "--prod"]
+    networks:
+      - backend
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx/bdl.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./front/dist/front/browser:/var/www/bdl
+    depends_on:
+      - back
+      - front
+    networks:
+      - backend
+    ports:
+      - "8080:80"   # expõe apenas internamente na VPC (não precisa abrir no SG se for só para Lambda)
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+    driver: bridge

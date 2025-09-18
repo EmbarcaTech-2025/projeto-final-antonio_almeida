@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<mat-card class="form-card">
+  <mat-card-content>
+    <form [formGroup]="loginForm">
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label for="login">E-mail:</mat-label>
+          <input
+            formControlName="login"
+            type="text"
+            formControlName="login"
+            matInput
+            placeholder="Login"
+            autocomplete="login"
+          />
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <br />
+        <span
+          class="badge bg-danger"
+          *ngIf="loginForm.get('login')?.touched && loginForm.get('login')?.errors?.['required']"
+        >
+          E-mail é obrigatório.
+        </span>
+        <span
+          class="badge bg-danger"
+          *ngIf="loginForm.get('login')?.touched && loginForm.get('login')?.errors?.['email']"
+        >
+          E-mail inválido.
+        </span>
+      </div>
+      <br />
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label for="password">Password:</mat-label>
+          <input
+            formControlName="password"
+            type="password"
+            formControlName="password"
+            matInput
+            placeholder="password"
+            autocomplete="new-password"
+          />
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+
+        <br />
+        <span
+          class="badge bg-danger"
+          *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
+        >
+          Senha é obrigatória.
+        </span>
+      </div>
+
+      <button
+        (click)="onSubmit()"
+        [disabled]="!loginForm.valid"
+        class="mt-4"
+        mat-raised-button
+        color="accent"
+      >
+        Entre
+      </button>
+      <mat-spinner *ngIf="isLoading" diameter="123"></mat-spinner>
+
+      <div class="error-message" *ngIf="errorMessage && !isLoading">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

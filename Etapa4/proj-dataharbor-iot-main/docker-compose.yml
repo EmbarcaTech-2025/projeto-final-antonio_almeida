@@ -1,0 +1,56 @@
+services:
+  front:
+    build: ./front
+    depends_on:
+      - back
+    volumes:
+      - ./front/dist:/var/www/bdl
+
+  banco:
+    image: postgres:15
+    container_name: pg_singular
+    environment:
+      POSTGRES_DB: singular
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: acfa
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # java-spring precisa rodar o comando 'mvn clean package' dentro de back/target
+  # para gerar o .jar antes de subir o container (isso sempre que atualizar o código)
+  back:
+    build:
+      context: .
+      dockerfile: back/Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://banco:5432/singular
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: acfa # usar variável de ambiente ou secret em produção ou alterar application.properties
+      SERVER_ADDRESS: 0.0.0.0
+    expose:
+      - "8090"     # não precisa mapear porta no host, só expor internamente, contudo para debug é muito útil exec localmente
+    depends_on:
+      - banco
+
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - front
+      - back
+    ports:
+      - "80:80"   # apenas para debug... pode remover depois que cloudflare estiver estável
+    volumes:
+      - ./nginx/bdl.conf:/etc/nginx/conf.d/bdl.conf:ro
+      - ./front/dist/front/browser:/var/www/bdl
+    expose:
+      - "80"
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate run --token <SEU_TOKEN_AQUI> 
+    restart: unless-stopped
+    depends_on:
+      - nginx
+    # se for usar tunnel nomeado em vez de token direto:
+    # volumes:
+    #   - ./cloudflared:/etc/cloudflared

@@ -1,0 +1,22 @@
+/* rodape.component.css ou styles.css */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 20px;
+  text-align: center; /* Centraliza o texto horizontalmente */
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Estilo para o símbolo de marca registrada */
+.footer p::before {
+  content: "\00a9"; /* Código Unicode para o símbolo de marca registrada (®) */
+  margin-right: 5px; /* Espaçamento à direita do símbolo de marca registrada */
+}
