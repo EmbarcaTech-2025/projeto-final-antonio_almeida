@@ -203,8 +203,9 @@ npm -v
 ng version
 ```
 
-### 6. Postgres Client (opcional) + DBeaver(opcional, más muito importante para visualizar comportamento do banco)
+### 6. Postgres Client (opcional) + DBeaver (opcional, más muito importante para visualizar comportamento do banco)
 
+![DBeaver](./dbeaver.png)
     - Útil para testar queries diretamente no banco:
 
 ```bash
