@@ -115,6 +115,7 @@ Antes de rodar o projeto, certifique-se de que seu ambiente possui as seguintes 
 Necessário para rodar todos os containers (front, back, banco, nginx).
 
 - **Linux (Ubuntu/Debian)**:
+  
   ```bash
   sudo apt update
   sudo apt install -y docker.io
