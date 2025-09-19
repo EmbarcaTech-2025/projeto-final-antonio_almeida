@@ -241,13 +241,12 @@ Baseado no exemplo `httpd`/`server`, ele expõe endpoints via **CGI**, **SSI** e
 
 2. Onde se encontra o projeto do firmware:
 
-  git clone https://github.com/EmbarcaTech-2025/projeto-final-antonio_almeida.git
+  - git clone https://github.com/EmbarcaTech-2025/projeto-final-antonio_almeida.git
 
-  cd projeto-final-antonio_almeida/Firmware
+  - cd projeto-final-antonio_almeida/Firmware
+    (com as váriáveis de ambiente devidamente configuradas)
   
-  (com as váriáveis de ambiente devidamente configuradas)
-  
-  mkdir build && cd build
+  - mkdir build && cd build
 
 3. Gere os arquivos de build e compile:
   ```bash
