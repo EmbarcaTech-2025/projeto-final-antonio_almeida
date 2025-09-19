@@ -210,6 +210,70 @@ ng version
 ```bash
 sudo apt install -y postgresql-client
 ```
+
+### 7. ⚡ Firmware BitDogLab (Raspberry Pi Pico W)
+
+O firmware embarcado roda no **Raspberry Pi Pico W**, construído sobre o **Raspberry Pi Pico SDK** e utilizando a pilha de rede **lwIP**.  
+Baseado no exemplo `httpd`/`server`, ele expõe endpoints via **CGI**, **SSI** e chamadas **RESTful**, que podem ser consumidos pelo back-end Java Spring ou diretamente pelo front Angular em desenvolvimento.
+
+### 🛠️ Pré-requisitos para compilar o firmware
+
+- [Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk)
+- CMake (>= 3.13)
+- Compilador ARM GCC (`arm-none-eabi-gcc`)
+- Python 3 (para rodar `pico-sdk` e `pico-examples` scripts)
+- Dependências básicas de build:
+  - Linux:
+    ```bash
+    sudo apt update
+    sudo apt install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential
+    ```
+  - Windows:
+    - Instalar [Pico SDK + Toolchain](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf).
+    - Usar VSCode ou CLion com extensão CMake.
+
+### 🔨 Como compilar
+
+1. Clone o SDK e inicialize submódulos:
+   ```bash
+   git clone https://github.com/raspberrypi/pico-sdk.git --recursive
+   export PICO_SDK_PATH=$PWD/pico-sdk
+
+2. Onde se encontra o projeto do firmware:
+
+git clone https://github.com/EmbarcaTech-2025/projeto-final-antonio_almeida.git
+cd projeto-final-antonio_almeida/Firmware
+(com as váriáveis de ambiente devidamente configuradas)
+mkdir build && cd build
+
+3. Gere os arquivos de build e compile:
+
+cmake ..
+make
+
+4. O firmware final será gerado como .uf2 dentro de build/.
+
+🚀 Como gravar no Pico W
+
+Pressione o botão BOOTSEL no Pico W e conecte via USB.
+Ele aparecerá como um dispositivo de armazenamento no computador.
+
+Copie o arquivo .uf2 gerado para o dispositivo.
+
+O Pico W reiniciará automaticamente rodando o firmware.
+
+🌐 Acesso ao firmware
+
+O Pico W faz descoberta automática na rede local.
+
+Endpoints podem ser acessados via HTTP, por exemplo:
+
+CGI: http://<IP_DO_PICO>/led.cgi
+REST (JSON): http://<IP_DO_PICO>/api/sensors
+
+Esse IP pode ser fixado via DHCP estático ou descoberto no log serial (minicom, picocom, ou pelo console do VSCode).
+(é sempre bom manter um servidor SSH ativo e funcional com os SSID's de interesse se comunicando ativamente)
+
 ## Comandos para Build e Execução
 
 ### Java Spring (Backend)
