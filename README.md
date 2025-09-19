@@ -255,23 +255,22 @@ make
 
 🚀 Como gravar no Pico W
 
-Pressione o botão BOOTSEL no Pico W e conecte via USB.
-Ele aparecerá como um dispositivo de armazenamento no computador.
-
-Copie o arquivo .uf2 gerado para o dispositivo.
-
-O Pico W reiniciará automaticamente rodando o firmware.
+- Pressione o botão BOOTSEL no Pico W e conecte via USB.
+- Ele aparecerá como um dispositivo de armazenamento no computador.
+- Copie o arquivo .uf2 gerado para o dispositivo.
+- O Pico W reiniciará automaticamente rodando o firmware.
 
 🌐 Acesso ao firmware
 
-O Pico W faz descoberta automática na rede local.
-
-Endpoints podem ser acessados via HTTP, por exemplo:
+- O Pico W faz descoberta automática na rede local.
+- Endpoints podem ser acessados via HTTP, por exemplo:
 
 CGI: http://<IP_DO_PICO>/led.cgi
+
 REST (JSON): http://<IP_DO_PICO>/api/sensors
 
 Esse IP pode ser fixado via DHCP estático ou descoberto no log serial (minicom, picocom, ou pelo console do VSCode).
+
 (é sempre bom manter um servidor SSH ativo e funcional com os SSID's de interesse se comunicando ativamente)
 
 ## Comandos para Build e Execução
