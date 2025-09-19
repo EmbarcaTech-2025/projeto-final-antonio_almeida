@@ -232,8 +232,8 @@ Baseado no exemplo `httpd`/`server`, ele expõe endpoints via **CGI**, **SSI** e
   - Windows:
     - Instalar [Pico SDK + Toolchain](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf).
     - Usar VSCode ou CLion com extensão CMake.
-- É possível substituir tudo isso por um ambiente completo de desenvolvimento para Raspberry Pi Pico H/W rodando em container através de:
-- [PicoDevBox](https://github.com/alfecjo/picodevbox-rp2040)
+- É possível substituir tudo isso por um ambiente completo de desenvolvimento para Raspberry Pi Pico H/W rodando em container através de: 
+[PicoDevBox](https://github.com/alfecjo/picodevbox-rp2040)
 
 ### 🔨 Como compilar
 
