@@ -159,16 +159,16 @@ java -version
 
 - **Ferramenta de build do Java, usada para gerenciar dependências e compilar o projeto.**
 
-  - Linux:
+- Linux:
 
 ```bash
 sudo apt install -y maven
 ```
 
-    - Windows/Mac:
-    - Baixe em Maven Downloads.
+- Windows/Mac:
+- Baixe em Maven Downloads.
 
-    - Verifique:
+- Verifique:
 
 ```bash
 mvn -version
