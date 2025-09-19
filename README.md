@@ -297,7 +297,7 @@ Baseado no exemplo `httpd`/`server`, ele expõe endpoints via **CGI**, **SSI** e
   ng build --configuration production
   // já está dentro do dockerfile do Angular
   ng build --configuration development
-  // para teste com variáveis globais e depuração sendo apresentadas no navegador
+  // para teste com variáveis globais e depuração sendo apresentadas no navegador utilizando DevTools Google para rastrear requisições.
   ```
 
 5. Docker e Compose - Subir todo o ambiente com containers:
