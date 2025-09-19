@@ -130,7 +130,7 @@ Necessário para rodar todos os containers (front, back, banco, nginx).
 - **Linux (Docker Compose V2 já incluso no Docker recente):**
 
 ```bash
-docker compose version
+docker compose --version
 ```
 
 - **Se não aparecer, instale manualmente:**
