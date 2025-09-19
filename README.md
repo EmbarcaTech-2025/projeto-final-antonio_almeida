@@ -27,7 +27,7 @@ Apresentação executiva do projeto, destacando:
 
 ---
 
-### 2. ⚙️ Firmware
+### 2. ⚙️ Firmware/dataharbor-iot
 
 - Firmware embarcado escrito em linguagem 'C', totalmente apoiado no **lwIP** (Lightweight TCP/IP stack):
   - **Descoberta automática de dispositivos** na rede.
