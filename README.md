@@ -268,14 +268,10 @@ Baseado no exemplo `httpd`/`server`, ele expõe endpoints via **CGI**, **SSI** e
 
 - O Pico W faz descoberta automática na rede local.
 - Endpoints podem ser acessados via HTTP, por exemplo:
-
-CGI: http://<IP_DO_PICO>/led.cgi
-
-REST (JSON): http://<IP_DO_PICO>/api/sensors
-
-Esse IP pode ser fixado via DHCP estático ou descoberto no log serial (minicom, picocom, ou pelo console do VSCode).
-
-(é sempre bom manter um servidor SSH ativo e funcional com os SSID's de interesse se comunicando ativamente)
+- CGI: http://<IP_DO_PICO>/led.cgi
+- REST (JSON): http://<IP_DO_PICO>/api/sensors
+- Esse IP pode ser fixado via DHCP estático ou descoberto no log serial (minicom, picocom, ou pelo console do VSCode).
+  (é sempre bom manter um servidor SSH ativo e funcional com os SSID's de interesse se comunicando ativamente)
 
 ## Comandos para Build e Execução
 
