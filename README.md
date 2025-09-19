@@ -176,25 +176,25 @@ mvn -version
 
 ### 5. Node.js + Angular CLI
 
-    - Necessário para buildar e rodar o front-end Angular.
+- Necessário para buildar e rodar o front-end Angular.
 
-    - Instale o Node.js (v18 ou superior recomendado):
+- Instale o Node.js (v18 ou superior recomendado):
 
-    - Node.js Downloads
+- Node.js Downloads
 
-    - Linux:
+- Linux:
 
 ```bash
 sudo apt install -y nodejs npm
 ```
 
-    - Instale o Angular CLI globalmente:
+- Instale o Angular CLI globalmente:
 
 ```bash
 npm install -g @angular/cli
 ```
 
-    - Verifique:
+- Verifique:
 
 ```bash
 node -v
@@ -206,7 +206,7 @@ ng version
 
 ![DBeaver](./dbeaver.png)
 
-    - Útil para testar queries diretamente no banco:
+- Útil para testar queries diretamente no banco:
 
 ```bash
 sudo apt install -y postgresql-client
