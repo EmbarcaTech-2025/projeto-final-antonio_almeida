@@ -214,7 +214,7 @@ sudo apt install -y postgresql-client
 ### 7. ⚡ Firmware BitDogLab (Raspberry Pi Pico W)
 
 O firmware embarcado roda no **Raspberry Pi Pico W**, construído sobre o **Raspberry Pi Pico SDK** e utilizando a pilha de rede **lwIP**.  
-Baseado no exemplo `httpd`/`server`, ele expõe endpoints via **CGI**, **SSI** e chamadas **RESTful**, que podem ser consumidos pelo back-end Java Spring ou diretamente pelo front Angular em desenvolvimento.
+Baseado no exemplo `httpd`/`server`, ele expõe endpoints via **CGI**, **SSI** e chamadas **RESTful**, que podem ser consumidos pelo back-end Java Spring, e por sua vez, carregados no navegador pelo front Angular.
 
 ### 🛠️ Pré-requisitos para compilar o firmware
 
